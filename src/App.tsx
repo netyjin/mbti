@@ -36,7 +36,7 @@ export default function App() {
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(prev => !prev);
+    setIsDarkMode((prev: boolean) => !prev);
   };
 
   const calculateMBTI = () => {
@@ -62,18 +62,18 @@ export default function App() {
   };
 
   const handleAnswer = (questionId: number, answer: string) => {
-    setAnswers(prev => ({ ...prev, [questionId]: answer }));
+    setAnswers((prev: Record<number, string>) => ({ ...prev, [questionId]: answer }));
   };
 
   const handleNext = () => {
     if (currentQuestion < questions.length) {
-      setCurrentQuestion(prev => prev + 1);
+      setCurrentQuestion((prev: number) => prev + 1);
     }
   };
 
   const handlePrev = () => {
     if (currentQuestion > 1) {
-      setCurrentQuestion(prev => prev - 1);
+      setCurrentQuestion((prev: number) => prev - 1);
     }
   };
 
